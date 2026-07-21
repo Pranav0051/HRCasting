@@ -3,6 +3,8 @@ dist
 .env
 *.log
 .DS_Store
+data/*.json
 C:/Users/prana/.gemini/antigravity-ide/brain/
 .system_generated/
 .agents/
+

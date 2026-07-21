@@ -41,37 +41,36 @@ export function AutoScrollingSlider({
 
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1A1A1C] to-[#0F0F10] border border-white/5">
         {/* Slider Container */}
-        <div className="relative h-[280px] md:h-[360px] lg:h-[420px] overflow-hidden">
+        <div className="relative h-[220px] sm:h-[320px] md:h-[360px] lg:h-[420px] overflow-hidden">
           <motion.div
-  className="flex h-full"
-  animate={{ x: ["0%", "-50%"] }}
-  transition={{
-    duration: 50, // slow speed
-    ease: "linear",
-    repeat: Infinity,
-  }}
->
-  {[...images, ...images].map((image, index) => (
-    <div
-      key={index}
-      className="h-full flex-shrink-0 px-2"
-      style={{ width: "300px" }} // FIXED WIDTH (important)
-    >
-      <div className="w-full h-full rounded-2xl overflow-hidden bg-[#0F0F10]">
-        <img
-          src={image}
-          alt="slide"
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-  ))}
-</motion.div>
+            className="flex h-full"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 50,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {[...images, ...images].map((image, index) => (
+              <div
+                key={index}
+                className="h-full flex-shrink-0 px-1.5 sm:px-2 w-[200px] sm:w-[260px] md:w-[320px]"
+              >
+                <div className="w-full h-full rounded-2xl overflow-hidden bg-[#0F0F10] border border-white/5">
+                  <img
+                    src={image}
+                    alt="slide"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </motion.div>
 
           {/* Gradient Fade Edges */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0F0F10] via-[#0F0F10]/20 to-transparent" />
-            <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#0F0F10] via-[#0F0F10]/20 to-transparent" />
+            <div className="absolute inset-y-0 left-0 w-8 sm:w-20 md:w-36 lg:w-48 bg-gradient-to-r from-[#0F0F10] via-[#0F0F10]/20 to-transparent" />
+            <div className="absolute inset-y-0 right-0 w-8 sm:w-20 md:w-36 lg:w-48 bg-gradient-to-l from-[#0F0F10] via-[#0F0F10]/20 to-transparent" />
           </div>
         </div>
       </div>

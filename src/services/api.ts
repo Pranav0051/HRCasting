@@ -114,9 +114,13 @@ export async function updateProduct(
   });
 }
 
-export async function deleteProduct(id: string, token: string): Promise<boolean> {
-  return request<boolean>(`/api/products/${id}`, {
+export async function deleteProduct(
+  id: string,
+  token: string
+): Promise<{ success: boolean; id?: string }> {
+  return request<{ success: boolean; id?: string }>(`/api/products/${id}`, {
     method: "DELETE",
     token,
   });
 }
+

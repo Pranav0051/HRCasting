@@ -579,67 +579,69 @@ export default function HomePage({ adminToken, onLogout }: HomePageProps) {
             </motion.div>
           </motion.div>
 
-          {/* Hero Image with Glow */}
+          {/* Hero Image with Glow & Responsive Alignment */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 1.2 }}
-            className="mt-24 relative"
+            className="mt-12 sm:mt-16 md:mt-24 relative"
           >
             <div className="relative max-w-5xl mx-auto">
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/30 via-transparent to-transparent blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/30 via-transparent to-transparent blur-3xl pointer-events-none" />
 
-              <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/20">
+              <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/20 shadow-2xl">
                 <motion.img
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.6 }}
                   src={products[0]?.image || "/assets/Bangles.jpeg"}
                   alt="Premium Silver Jewellery"
-                  className="w-full h-[200px] md:h-[300px] lg:h-[400px] object-cover"
+                  className="w-full h-[220px] sm:h-[320px] md:h-[380px] lg:h-[450px] object-cover"
                   style={{
                     filter: "brightness(0.9) contrast(1.1)",
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F10] via-transparent to-transparent opacity-80 md:opacity-100" />
               </div>
 
-              {/* Floating Stats */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.6 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="absolute top-12 -left-6 md:-left-12"
-              >
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/40 to-[#C0C0C0]/40 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-                  <div className="relative bg-[#1A1A1C]/80 backdrop-blur-2xl p-8 rounded-2xl border border-[#D4AF37]/20">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#E5E4E2] bg-clip-text text-transparent">
-                      30+
+              {/* Responsive Stats: Floating on Desktop, Side-by-side Row on Mobile */}
+              <div className="mt-6 md:mt-0 grid grid-cols-2 gap-3 sm:gap-4 md:contents">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.6 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="md:absolute md:top-12 md:-left-8 lg:-left-12"
+                >
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/40 to-[#C0C0C0]/40 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+                    <div className="relative bg-[#1A1A1C]/90 backdrop-blur-2xl p-4 sm:p-6 md:p-8 rounded-2xl border border-[#D4AF37]/20 text-center md:text-left">
+                      <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#E5E4E2] bg-clip-text text-transparent">
+                        30+
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2 font-medium">Years Experience</div>
                     </div>
-                    <div className="text-sm text-gray-400 mt-2">Years Experience</div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.8 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="absolute bottom-12 -right-6 md:-right-12"
-              >
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0]/40 to-[#D4AF37]/40 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
-                  <div className="relative bg-[#1A1A1C]/80 backdrop-blur-2xl p-8 rounded-2xl border border-[#C0C0C0]/20">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-[#E5E4E2] to-[#C0C0C0] bg-clip-text text-transparent">
-                      925
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.8 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="md:absolute md:bottom-12 md:-right-8 lg:-right-12"
+                >
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0]/40 to-[#D4AF37]/40 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
+                    <div className="relative bg-[#1A1A1C]/90 backdrop-blur-2xl p-4 sm:p-6 md:p-8 rounded-2xl border border-[#C0C0C0]/20 text-center md:text-left">
+                      <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#E5E4E2] to-[#C0C0C0] bg-clip-text text-transparent">
+                        925
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2 font-medium">Pure Silver</div>
                     </div>
-                    <div className="text-sm text-gray-400 mt-2">Pure Silver</div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
